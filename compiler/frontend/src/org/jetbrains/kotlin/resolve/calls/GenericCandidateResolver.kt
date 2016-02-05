@@ -277,6 +277,9 @@ class GenericCandidateResolver(private val argumentTypeResolver: ArgumentTypeRes
                     context, "trace to resolve function literal with expected return type", argumentExpression)
 
             val statementExpression = KtPsiUtil.getExpressionOrLastStatementInBlock(functionLiteral.bodyExpression) ?: return
+            if (KotlinBuiltIns.isFunctionOrExtensionFunctionType(effectiveExpectedType) &&
+                getReturnTypeForCallable(expectedType) == getReturnTypeForCallable(effectiveExpectedType))
+                return
             val mismatch = BooleanArray(1)
             val errorInterceptingTrace = ExpressionTypingUtils.makeTraceInterceptingTypeMismatch(
                     temporaryToResolveFunctionLiteral.trace, statementExpression, mismatch)

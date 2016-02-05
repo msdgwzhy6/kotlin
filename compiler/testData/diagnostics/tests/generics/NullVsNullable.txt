@@ -1,0 +1,14 @@
+package
+
+public val fail: Sample<kotlin.Int?>
+public val ok: Sample<kotlin.Int?>
+public fun foo(/*0*/ arg: kotlin.Any?): kotlin.Unit
+
+public final class Sample</*0*/ T> {
+    public constructor Sample</*0*/ T>(/*0*/ x: T, /*1*/ f: (T) -> kotlin.Unit)
+    public final val f: (T) -> kotlin.Unit
+    public final val x: T
+    public open override /*1*/ /*fake_override*/ fun equals(/*0*/ other: kotlin.Any?): kotlin.Boolean
+    public open override /*1*/ /*fake_override*/ fun hashCode(): kotlin.Int
+    public open override /*1*/ /*fake_override*/ fun toString(): kotlin.String
+}
