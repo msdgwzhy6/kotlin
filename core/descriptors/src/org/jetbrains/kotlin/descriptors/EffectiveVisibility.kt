@@ -225,9 +225,9 @@ fun effectiveVisibility(visibility: Visibility, descriptor: ClassDescriptor?) = 
 
 enum class RelationToType(val description: String) {
     CONSTRUCTOR(""),
-    CONTAINER("containing class or object"),
-    ARGUMENT("type argument"),
-    ARGUMENT_CONTAINER("type argument containing class or object");
+    CONTAINER(" containing declaration"),
+    ARGUMENT(" argument"),
+    ARGUMENT_CONTAINER(" argument containing declaration");
 
     fun containerRelation() = when (this) {
         CONSTRUCTOR, CONTAINER -> CONTAINER

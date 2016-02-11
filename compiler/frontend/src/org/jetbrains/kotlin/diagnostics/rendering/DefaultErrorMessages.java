@@ -114,13 +114,13 @@ public class DefaultErrorMessages {
         MAP.put(INVISIBLE_REFERENCE, "Cannot access ''{0}'': it is ''{1}'' in {2}", NAME, TO_STRING, NAME_OF_PARENT_OR_FILE);
         MAP.put(INVISIBLE_MEMBER, "Cannot access ''{0}'': it is ''{1}'' in {2}", NAME, TO_STRING, NAME_OF_PARENT_OR_FILE);
 
-        MAP.put(EXPOSED_PROPERTY_TYPE, "Property effective visibility ''{0}'' should be the same or less permissive than its type {1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
-        MAP.put(EXPOSED_FUNCTION_RETURN_TYPE, "Function effective visibility ''{0}'' should be the same or less permissive than its return type {1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
-        MAP.put(EXPOSED_PARAMETER_TYPE, "Function effective visibility ''{0}'' should be the same or less permissive than its parameter type {1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
-        MAP.put(EXPOSED_RECEIVER_TYPE, "Member effective visibility ''{0}'' should be the same or less permissive than its receiver type {1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
-        MAP.put(EXPOSED_TYPE_PARAMETER_BOUND, "Generic effective visibility ''{0}'' should be the same or less permissive than its type parameter bound {1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
-        MAP.put(EXPOSED_SUPER_CLASS, "Subclass effective visibility ''{0}'' should be the same or less permissive than its superclass {1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
-        MAP.put(EXPOSED_SUPER_INTERFACE, "Sub-interface effective visibility ''{0}'' should be the same or less permissive than its super-interface {1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
+        MAP.put(EXPOSED_PROPERTY_TYPE, "Property effective visibility ''{0}'' should be the same or less permissive than its type{1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
+        MAP.put(EXPOSED_FUNCTION_RETURN_TYPE, "Function effective visibility ''{0}'' should be the same or less permissive than its return type{1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
+        MAP.put(EXPOSED_PARAMETER_TYPE, "Function effective visibility ''{0}'' should be the same or less permissive than its parameter type{1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
+        MAP.put(EXPOSED_RECEIVER_TYPE, "Member effective visibility ''{0}'' should be the same or less permissive than its receiver type{1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
+        MAP.put(EXPOSED_TYPE_PARAMETER_BOUND, "Generic effective visibility ''{0}'' should be the same or less permissive than its parameter bound type{1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
+        MAP.put(EXPOSED_SUPER_CLASS, "Subclass effective visibility ''{0}'' should be the same or less permissive than its supertype{1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
+        MAP.put(EXPOSED_SUPER_INTERFACE, "Sub-interface effective visibility ''{0}'' should be the same or less permissive than its supertype{1} effective visibility ''{2}''", TO_STRING, TO_STRING, TO_STRING);
 
         MAP.put(INACCESSIBLE_TYPE, "Type {0} is inaccessible in this context due to: {1}", RENDER_TYPE, RENDER_COLLECTION_OF_TYPES);
 
