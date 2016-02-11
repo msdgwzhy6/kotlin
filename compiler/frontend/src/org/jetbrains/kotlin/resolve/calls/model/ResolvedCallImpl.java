@@ -81,10 +81,13 @@ public class ResolvedCallImpl<D extends CallableDescriptor> implements MutableRe
     private final ExplicitReceiverKind explicitReceiverKind;
     private final TypeSubstitutor knownTypeParametersSubstitutor;
 
-    private final Map<TypeParameterDescriptor, KotlinType> typeArguments = Maps.newLinkedHashMap();
-    private final Map<ValueParameterDescriptor, ResolvedValueArgument> valueArguments = Maps.newLinkedHashMap();
+    @NotNull
+    private final Map<TypeParameterDescriptor, KotlinType> typeArguments;
+    @NotNull
+    private final Map<ValueParameterDescriptor, ResolvedValueArgument> valueArguments;
     private final MutableDataFlowInfoForArguments dataFlowInfoForArguments;
-    private final Map<ValueArgument, ArgumentMatchImpl> argumentToParameterMap = Maps.newHashMap();
+    @NotNull
+    private final Map<ValueArgument, ArgumentMatchImpl> argumentToParameterMap;
 
     private DelegatingBindingTrace trace;
     private TracingStrategy tracing;
@@ -109,6 +112,9 @@ public class ResolvedCallImpl<D extends CallableDescriptor> implements MutableRe
         this.trace = trace;
         this.tracing = tracing;
         this.dataFlowInfoForArguments = dataFlowInfoForArguments;
+        this.typeArguments = createTypeArgumentsMap(candidateDescriptor);
+        this.valueArguments = createValueArgumentsMap(candidateDescriptor);
+        this.argumentToParameterMap = createArgumentsToParameterMap(candidateDescriptor);
     }
 
     public ResolvedCallImpl(
@@ -131,6 +137,30 @@ public class ResolvedCallImpl<D extends CallableDescriptor> implements MutableRe
         this.trace = trace;
         this.tracing = tracing;
         this.dataFlowInfoForArguments = dataFlowInfoForArguments;
+        this.typeArguments = createTypeArgumentsMap(candidateDescriptor);
+        this.valueArguments = createValueArgumentsMap(candidateDescriptor);
+        this.argumentToParameterMap = createArgumentsToParameterMap(candidateDescriptor);
+    }
+
+    @NotNull
+    private static Map<ValueParameterDescriptor, ResolvedValueArgument> createValueArgumentsMap(CallableDescriptor descriptor) {
+        return descriptor.getValueParameters().isEmpty()
+               ? Collections.<ValueParameterDescriptor, ResolvedValueArgument>emptyMap()
+               : Maps.<ValueParameterDescriptor, ResolvedValueArgument>newLinkedHashMap();
+    }
+
+    @NotNull
+    private static Map<ValueArgument, ArgumentMatchImpl> createArgumentsToParameterMap(CallableDescriptor descriptor) {
+        return descriptor.getValueParameters().isEmpty()
+               ? Collections.<ValueArgument, ArgumentMatchImpl>emptyMap()
+               : Maps.<ValueArgument, ArgumentMatchImpl>newHashMap();
+    }
+
+    @NotNull
+    private static Map<TypeParameterDescriptor, KotlinType> createTypeArgumentsMap(CallableDescriptor descriptor) {
+        return descriptor.getTypeParameters().isEmpty()
+               ? Collections.<TypeParameterDescriptor, KotlinType>emptyMap()
+               : Maps.<TypeParameterDescriptor, KotlinType>newLinkedHashMap();
     }
 
     @Override
@@ -187,12 +217,16 @@ public class ResolvedCallImpl<D extends CallableDescriptor> implements MutableRe
         resultingDescriptor = (D) candidateDescriptor.substitute(substitutor);
         assert resultingDescriptor != null : candidateDescriptor;
 
-        for (TypeParameterDescriptor typeParameter : candidateDescriptor.getTypeParameters()) {
-            TypeProjection typeArgumentProjection = substitutor.getSubstitution().get(typeParameter.getDefaultType());
-            if (typeArgumentProjection != null) {
-                typeArguments.put(typeParameter, typeArgumentProjection.getType());
+        if (!candidateDescriptor.getTypeParameters().isEmpty()) {
+            for (TypeParameterDescriptor typeParameter : candidateDescriptor.getTypeParameters()) {
+                TypeProjection typeArgumentProjection = substitutor.getSubstitution().get(typeParameter.getDefaultType());
+                if (typeArgumentProjection != null) {
+                    typeArguments.put(typeParameter, typeArgumentProjection.getType());
+                }
             }
         }
+
+        if (valueArguments.isEmpty()) return;
 
         List<ValueParameterDescriptor> substitutedParameters = resultingDescriptor.getValueParameters();
 
