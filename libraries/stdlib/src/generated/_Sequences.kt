@@ -92,7 +92,7 @@ public fun <T> Sequence<T>.first(): T {
  */
 public inline fun <T> Sequence<T>.first(predicate: (T) -> Boolean): T {
     for (element in this) if (predicate(element)) return element
-    throw NoSuchElementException("No element matching predicate was found.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -180,7 +180,7 @@ public inline fun <T> Sequence<T>.last(predicate: (T) -> Boolean): T {
             found = true
         }
     }
-    if (!found) throw NoSuchElementException("Collection doesn't contain any element matching the predicate.")
+    if (!found) throw NoSuchElementException("No element matching the predicate was found.")
     return last as T
 }
 
@@ -245,12 +245,12 @@ public inline fun <T> Sequence<T>.single(predicate: (T) -> Boolean): T {
     var found = false
     for (element in this) {
         if (predicate(element)) {
-            if (found) throw IllegalArgumentException("Collection contains more than one matching element.")
+            if (found) throw IllegalArgumentException("Sequence contains more than one matching element.")
             single = element
             found = true
         }
     }
-    if (!found) throw NoSuchElementException("Collection doesn't contain any element matching predicate.")
+    if (!found) throw NoSuchElementException("Sequence doesn't contain any element matching predicate.")
     return single as T
 }
 
@@ -906,7 +906,7 @@ public inline fun <T> Sequence<T>.none(predicate: (T) -> Boolean): Boolean {
  */
 public inline fun <S, T: S> Sequence<T>.reduce(operation: (S, T) -> S): S {
     val iterator = this.iterator()
-    if (!iterator.hasNext()) throw UnsupportedOperationException("Empty iterable can't be reduced.")
+    if (!iterator.hasNext()) throw UnsupportedOperationException("Empty sequence can't be reduced.")
     var accumulator: S = iterator.next()
     while (iterator.hasNext()) {
         accumulator = operation(accumulator, iterator.next())
@@ -920,7 +920,7 @@ public inline fun <S, T: S> Sequence<T>.reduce(operation: (S, T) -> S): S {
  */
 public inline fun <S, T: S> Sequence<T>.reduceIndexed(operation: (Int, S, T) -> S): S {
     val iterator = this.iterator()
-    if (!iterator.hasNext()) throw UnsupportedOperationException("Empty iterable can't be reduced.")
+    if (!iterator.hasNext()) throw UnsupportedOperationException("Empty sequence can't be reduced.")
     var index = 1
     var accumulator: S = iterator.next()
     while (iterator.hasNext()) {

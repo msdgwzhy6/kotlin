@@ -59,7 +59,7 @@ public inline fun CharSequence.findLast(predicate: (Char) -> Boolean): Char? {
  */
 public fun CharSequence.first(): Char {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Char sequence is empty.")
     return this[0]
 }
 
@@ -69,7 +69,7 @@ public fun CharSequence.first(): Char {
  */
 public inline fun CharSequence.first(predicate: (Char) -> Boolean): Char {
     for (element in this) if (predicate(element)) return element
-    throw NoSuchElementException("No element matching predicate was found.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -132,7 +132,7 @@ public inline fun CharSequence.indexOfLast(predicate: (Char) -> Boolean): Int {
  */
 public fun CharSequence.last(): Char {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Char sequence is empty.")
     return this[lastIndex]
 }
 
@@ -145,7 +145,7 @@ public inline fun CharSequence.last(predicate: (Char) -> Boolean): Char {
         val element = this[index]
         if (predicate(element)) return element
     }
-    throw NoSuchElementException("Collection doesn't contain any element matching the predicate.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -171,9 +171,9 @@ public inline fun CharSequence.lastOrNull(predicate: (Char) -> Boolean): Char? {
  */
 public fun CharSequence.single(): Char {
     return when (length) {
-        0 -> throw NoSuchElementException("Collection is empty.")
+        0 -> throw NoSuchElementException("Char sequence is empty.")
         1 -> this[0]
-        else -> throw IllegalArgumentException("Collection has more than one element.")
+        else -> throw IllegalArgumentException("Char sequence has more than one element.")
     }
 }
 
@@ -185,12 +185,12 @@ public inline fun CharSequence.single(predicate: (Char) -> Boolean): Char {
     var found = false
     for (element in this) {
         if (predicate(element)) {
-            if (found) throw IllegalArgumentException("Collection contains more than one matching element.")
+            if (found) throw IllegalArgumentException("Char sequence contains more than one matching element.")
             single = element
             found = true
         }
     }
-    if (!found) throw NoSuchElementException("Collection doesn't contain any element matching predicate.")
+    if (!found) throw NoSuchElementException("Char sequence doesn't contain any element matching predicate.")
     return single as Char
 }
 
@@ -992,7 +992,7 @@ public inline fun CharSequence.reduceIndexed(operation: (Int, Char, Char) -> Cha
  */
 public inline fun CharSequence.reduceRight(operation: (Char, Char) -> Char): Char {
     var index = lastIndex
-    if (index < 0) throw UnsupportedOperationException("Empty iterable can't be reduced.")
+    if (index < 0) throw UnsupportedOperationException("Empty char sequence can't be reduced.")
     var accumulator = get(index--)
     while (index >= 0) {
         accumulator = operation(get(index--), accumulator)

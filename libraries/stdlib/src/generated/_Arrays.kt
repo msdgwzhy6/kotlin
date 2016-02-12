@@ -802,7 +802,7 @@ public inline fun CharArray.findLast(predicate: (Char) -> Boolean): Char? {
  */
 public fun <T> Array<out T>.first(): T {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[0]
 }
 
@@ -812,7 +812,7 @@ public fun <T> Array<out T>.first(): T {
  */
 public fun ByteArray.first(): Byte {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[0]
 }
 
@@ -822,7 +822,7 @@ public fun ByteArray.first(): Byte {
  */
 public fun ShortArray.first(): Short {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[0]
 }
 
@@ -832,7 +832,7 @@ public fun ShortArray.first(): Short {
  */
 public fun IntArray.first(): Int {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[0]
 }
 
@@ -842,7 +842,7 @@ public fun IntArray.first(): Int {
  */
 public fun LongArray.first(): Long {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[0]
 }
 
@@ -852,7 +852,7 @@ public fun LongArray.first(): Long {
  */
 public fun FloatArray.first(): Float {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[0]
 }
 
@@ -862,7 +862,7 @@ public fun FloatArray.first(): Float {
  */
 public fun DoubleArray.first(): Double {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[0]
 }
 
@@ -872,7 +872,7 @@ public fun DoubleArray.first(): Double {
  */
 public fun BooleanArray.first(): Boolean {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[0]
 }
 
@@ -882,7 +882,7 @@ public fun BooleanArray.first(): Boolean {
  */
 public fun CharArray.first(): Char {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[0]
 }
 
@@ -892,7 +892,7 @@ public fun CharArray.first(): Char {
  */
 public inline fun <T> Array<out T>.first(predicate: (T) -> Boolean): T {
     for (element in this) if (predicate(element)) return element
-    throw NoSuchElementException("No element matching predicate was found.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -901,7 +901,7 @@ public inline fun <T> Array<out T>.first(predicate: (T) -> Boolean): T {
  */
 public inline fun ByteArray.first(predicate: (Byte) -> Boolean): Byte {
     for (element in this) if (predicate(element)) return element
-    throw NoSuchElementException("No element matching predicate was found.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -910,7 +910,7 @@ public inline fun ByteArray.first(predicate: (Byte) -> Boolean): Byte {
  */
 public inline fun ShortArray.first(predicate: (Short) -> Boolean): Short {
     for (element in this) if (predicate(element)) return element
-    throw NoSuchElementException("No element matching predicate was found.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -919,7 +919,7 @@ public inline fun ShortArray.first(predicate: (Short) -> Boolean): Short {
  */
 public inline fun IntArray.first(predicate: (Int) -> Boolean): Int {
     for (element in this) if (predicate(element)) return element
-    throw NoSuchElementException("No element matching predicate was found.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -928,7 +928,7 @@ public inline fun IntArray.first(predicate: (Int) -> Boolean): Int {
  */
 public inline fun LongArray.first(predicate: (Long) -> Boolean): Long {
     for (element in this) if (predicate(element)) return element
-    throw NoSuchElementException("No element matching predicate was found.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -937,7 +937,7 @@ public inline fun LongArray.first(predicate: (Long) -> Boolean): Long {
  */
 public inline fun FloatArray.first(predicate: (Float) -> Boolean): Float {
     for (element in this) if (predicate(element)) return element
-    throw NoSuchElementException("No element matching predicate was found.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -946,7 +946,7 @@ public inline fun FloatArray.first(predicate: (Float) -> Boolean): Float {
  */
 public inline fun DoubleArray.first(predicate: (Double) -> Boolean): Double {
     for (element in this) if (predicate(element)) return element
-    throw NoSuchElementException("No element matching predicate was found.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -955,7 +955,7 @@ public inline fun DoubleArray.first(predicate: (Double) -> Boolean): Double {
  */
 public inline fun BooleanArray.first(predicate: (Boolean) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return element
-    throw NoSuchElementException("No element matching predicate was found.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -964,7 +964,7 @@ public inline fun BooleanArray.first(predicate: (Boolean) -> Boolean): Boolean {
  */
 public inline fun CharArray.first(predicate: (Char) -> Boolean): Char {
     for (element in this) if (predicate(element)) return element
-    throw NoSuchElementException("No element matching predicate was found.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -1575,7 +1575,7 @@ public inline fun CharArray.indexOfLast(predicate: (Char) -> Boolean): Int {
  */
 public fun <T> Array<out T>.last(): T {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[lastIndex]
 }
 
@@ -1585,7 +1585,7 @@ public fun <T> Array<out T>.last(): T {
  */
 public fun ByteArray.last(): Byte {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[lastIndex]
 }
 
@@ -1595,7 +1595,7 @@ public fun ByteArray.last(): Byte {
  */
 public fun ShortArray.last(): Short {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[lastIndex]
 }
 
@@ -1605,7 +1605,7 @@ public fun ShortArray.last(): Short {
  */
 public fun IntArray.last(): Int {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[lastIndex]
 }
 
@@ -1615,7 +1615,7 @@ public fun IntArray.last(): Int {
  */
 public fun LongArray.last(): Long {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[lastIndex]
 }
 
@@ -1625,7 +1625,7 @@ public fun LongArray.last(): Long {
  */
 public fun FloatArray.last(): Float {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[lastIndex]
 }
 
@@ -1635,7 +1635,7 @@ public fun FloatArray.last(): Float {
  */
 public fun DoubleArray.last(): Double {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[lastIndex]
 }
 
@@ -1645,7 +1645,7 @@ public fun DoubleArray.last(): Double {
  */
 public fun BooleanArray.last(): Boolean {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[lastIndex]
 }
 
@@ -1655,7 +1655,7 @@ public fun BooleanArray.last(): Boolean {
  */
 public fun CharArray.last(): Char {
     if (isEmpty())
-        throw NoSuchElementException("Collection is empty.")
+        throw NoSuchElementException("Array is empty.")
     return this[lastIndex]
 }
 
@@ -1668,7 +1668,7 @@ public inline fun <T> Array<out T>.last(predicate: (T) -> Boolean): T {
         val element = this[index]
         if (predicate(element)) return element
     }
-    throw NoSuchElementException("Collection doesn't contain any element matching the predicate.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -1680,7 +1680,7 @@ public inline fun ByteArray.last(predicate: (Byte) -> Boolean): Byte {
         val element = this[index]
         if (predicate(element)) return element
     }
-    throw NoSuchElementException("Collection doesn't contain any element matching the predicate.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -1692,7 +1692,7 @@ public inline fun ShortArray.last(predicate: (Short) -> Boolean): Short {
         val element = this[index]
         if (predicate(element)) return element
     }
-    throw NoSuchElementException("Collection doesn't contain any element matching the predicate.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -1704,7 +1704,7 @@ public inline fun IntArray.last(predicate: (Int) -> Boolean): Int {
         val element = this[index]
         if (predicate(element)) return element
     }
-    throw NoSuchElementException("Collection doesn't contain any element matching the predicate.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -1716,7 +1716,7 @@ public inline fun LongArray.last(predicate: (Long) -> Boolean): Long {
         val element = this[index]
         if (predicate(element)) return element
     }
-    throw NoSuchElementException("Collection doesn't contain any element matching the predicate.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -1728,7 +1728,7 @@ public inline fun FloatArray.last(predicate: (Float) -> Boolean): Float {
         val element = this[index]
         if (predicate(element)) return element
     }
-    throw NoSuchElementException("Collection doesn't contain any element matching the predicate.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -1740,7 +1740,7 @@ public inline fun DoubleArray.last(predicate: (Double) -> Boolean): Double {
         val element = this[index]
         if (predicate(element)) return element
     }
-    throw NoSuchElementException("Collection doesn't contain any element matching the predicate.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -1752,7 +1752,7 @@ public inline fun BooleanArray.last(predicate: (Boolean) -> Boolean): Boolean {
         val element = this[index]
         if (predicate(element)) return element
     }
-    throw NoSuchElementException("Collection doesn't contain any element matching the predicate.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -1764,7 +1764,7 @@ public inline fun CharArray.last(predicate: (Char) -> Boolean): Char {
         val element = this[index]
         if (predicate(element)) return element
     }
-    throw NoSuchElementException("Collection doesn't contain any element matching the predicate.")
+    throw NoSuchElementException("No element matching the predicate was found.")
 }
 
 /**
@@ -2050,9 +2050,9 @@ public inline fun CharArray.lastOrNull(predicate: (Char) -> Boolean): Char? {
  */
 public fun <T> Array<out T>.single(): T {
     return when (size) {
-        0 -> throw NoSuchElementException("Collection is empty.")
+        0 -> throw NoSuchElementException("Array is empty.")
         1 -> this[0]
-        else -> throw IllegalArgumentException("Collection has more than one element.")
+        else -> throw IllegalArgumentException("Array has more than one element.")
     }
 }
 
@@ -2061,9 +2061,9 @@ public fun <T> Array<out T>.single(): T {
  */
 public fun ByteArray.single(): Byte {
     return when (size) {
-        0 -> throw NoSuchElementException("Collection is empty.")
+        0 -> throw NoSuchElementException("Array is empty.")
         1 -> this[0]
-        else -> throw IllegalArgumentException("Collection has more than one element.")
+        else -> throw IllegalArgumentException("Array has more than one element.")
     }
 }
 
@@ -2072,9 +2072,9 @@ public fun ByteArray.single(): Byte {
  */
 public fun ShortArray.single(): Short {
     return when (size) {
-        0 -> throw NoSuchElementException("Collection is empty.")
+        0 -> throw NoSuchElementException("Array is empty.")
         1 -> this[0]
-        else -> throw IllegalArgumentException("Collection has more than one element.")
+        else -> throw IllegalArgumentException("Array has more than one element.")
     }
 }
 
@@ -2083,9 +2083,9 @@ public fun ShortArray.single(): Short {
  */
 public fun IntArray.single(): Int {
     return when (size) {
-        0 -> throw NoSuchElementException("Collection is empty.")
+        0 -> throw NoSuchElementException("Array is empty.")
         1 -> this[0]
-        else -> throw IllegalArgumentException("Collection has more than one element.")
+        else -> throw IllegalArgumentException("Array has more than one element.")
     }
 }
 
@@ -2094,9 +2094,9 @@ public fun IntArray.single(): Int {
  */
 public fun LongArray.single(): Long {
     return when (size) {
-        0 -> throw NoSuchElementException("Collection is empty.")
+        0 -> throw NoSuchElementException("Array is empty.")
         1 -> this[0]
-        else -> throw IllegalArgumentException("Collection has more than one element.")
+        else -> throw IllegalArgumentException("Array has more than one element.")
     }
 }
 
@@ -2105,9 +2105,9 @@ public fun LongArray.single(): Long {
  */
 public fun FloatArray.single(): Float {
     return when (size) {
-        0 -> throw NoSuchElementException("Collection is empty.")
+        0 -> throw NoSuchElementException("Array is empty.")
         1 -> this[0]
-        else -> throw IllegalArgumentException("Collection has more than one element.")
+        else -> throw IllegalArgumentException("Array has more than one element.")
     }
 }
 
@@ -2116,9 +2116,9 @@ public fun FloatArray.single(): Float {
  */
 public fun DoubleArray.single(): Double {
     return when (size) {
-        0 -> throw NoSuchElementException("Collection is empty.")
+        0 -> throw NoSuchElementException("Array is empty.")
         1 -> this[0]
-        else -> throw IllegalArgumentException("Collection has more than one element.")
+        else -> throw IllegalArgumentException("Array has more than one element.")
     }
 }
 
@@ -2127,9 +2127,9 @@ public fun DoubleArray.single(): Double {
  */
 public fun BooleanArray.single(): Boolean {
     return when (size) {
-        0 -> throw NoSuchElementException("Collection is empty.")
+        0 -> throw NoSuchElementException("Array is empty.")
         1 -> this[0]
-        else -> throw IllegalArgumentException("Collection has more than one element.")
+        else -> throw IllegalArgumentException("Array has more than one element.")
     }
 }
 
@@ -2138,9 +2138,9 @@ public fun BooleanArray.single(): Boolean {
  */
 public fun CharArray.single(): Char {
     return when (size) {
-        0 -> throw NoSuchElementException("Collection is empty.")
+        0 -> throw NoSuchElementException("Array is empty.")
         1 -> this[0]
-        else -> throw IllegalArgumentException("Collection has more than one element.")
+        else -> throw IllegalArgumentException("Array has more than one element.")
     }
 }
 
@@ -2152,12 +2152,12 @@ public inline fun <T> Array<out T>.single(predicate: (T) -> Boolean): T {
     var found = false
     for (element in this) {
         if (predicate(element)) {
-            if (found) throw IllegalArgumentException("Collection contains more than one matching element.")
+            if (found) throw IllegalArgumentException("Array contains more than one matching element.")
             single = element
             found = true
         }
     }
-    if (!found) throw NoSuchElementException("Collection doesn't contain any element matching predicate.")
+    if (!found) throw NoSuchElementException("Array doesn't contain any element matching predicate.")
     return single as T
 }
 
@@ -2169,12 +2169,12 @@ public inline fun ByteArray.single(predicate: (Byte) -> Boolean): Byte {
     var found = false
     for (element in this) {
         if (predicate(element)) {
-            if (found) throw IllegalArgumentException("Collection contains more than one matching element.")
+            if (found) throw IllegalArgumentException("Array contains more than one matching element.")
             single = element
             found = true
         }
     }
-    if (!found) throw NoSuchElementException("Collection doesn't contain any element matching predicate.")
+    if (!found) throw NoSuchElementException("Array doesn't contain any element matching predicate.")
     return single as Byte
 }
 
@@ -2186,12 +2186,12 @@ public inline fun ShortArray.single(predicate: (Short) -> Boolean): Short {
     var found = false
     for (element in this) {
         if (predicate(element)) {
-            if (found) throw IllegalArgumentException("Collection contains more than one matching element.")
+            if (found) throw IllegalArgumentException("Array contains more than one matching element.")
             single = element
             found = true
         }
     }
-    if (!found) throw NoSuchElementException("Collection doesn't contain any element matching predicate.")
+    if (!found) throw NoSuchElementException("Array doesn't contain any element matching predicate.")
     return single as Short
 }
 
@@ -2203,12 +2203,12 @@ public inline fun IntArray.single(predicate: (Int) -> Boolean): Int {
     var found = false
     for (element in this) {
         if (predicate(element)) {
-            if (found) throw IllegalArgumentException("Collection contains more than one matching element.")
+            if (found) throw IllegalArgumentException("Array contains more than one matching element.")
             single = element
             found = true
         }
     }
-    if (!found) throw NoSuchElementException("Collection doesn't contain any element matching predicate.")
+    if (!found) throw NoSuchElementException("Array doesn't contain any element matching predicate.")
     return single as Int
 }
 
@@ -2220,12 +2220,12 @@ public inline fun LongArray.single(predicate: (Long) -> Boolean): Long {
     var found = false
     for (element in this) {
         if (predicate(element)) {
-            if (found) throw IllegalArgumentException("Collection contains more than one matching element.")
+            if (found) throw IllegalArgumentException("Array contains more than one matching element.")
             single = element
             found = true
         }
     }
-    if (!found) throw NoSuchElementException("Collection doesn't contain any element matching predicate.")
+    if (!found) throw NoSuchElementException("Array doesn't contain any element matching predicate.")
     return single as Long
 }
 
@@ -2237,12 +2237,12 @@ public inline fun FloatArray.single(predicate: (Float) -> Boolean): Float {
     var found = false
     for (element in this) {
         if (predicate(element)) {
-            if (found) throw IllegalArgumentException("Collection contains more than one matching element.")
+            if (found) throw IllegalArgumentException("Array contains more than one matching element.")
             single = element
             found = true
         }
     }
-    if (!found) throw NoSuchElementException("Collection doesn't contain any element matching predicate.")
+    if (!found) throw NoSuchElementException("Array doesn't contain any element matching predicate.")
     return single as Float
 }
 
@@ -2254,12 +2254,12 @@ public inline fun DoubleArray.single(predicate: (Double) -> Boolean): Double {
     var found = false
     for (element in this) {
         if (predicate(element)) {
-            if (found) throw IllegalArgumentException("Collection contains more than one matching element.")
+            if (found) throw IllegalArgumentException("Array contains more than one matching element.")
             single = element
             found = true
         }
     }
-    if (!found) throw NoSuchElementException("Collection doesn't contain any element matching predicate.")
+    if (!found) throw NoSuchElementException("Array doesn't contain any element matching predicate.")
     return single as Double
 }
 
@@ -2271,12 +2271,12 @@ public inline fun BooleanArray.single(predicate: (Boolean) -> Boolean): Boolean 
     var found = false
     for (element in this) {
         if (predicate(element)) {
-            if (found) throw IllegalArgumentException("Collection contains more than one matching element.")
+            if (found) throw IllegalArgumentException("Array contains more than one matching element.")
             single = element
             found = true
         }
     }
-    if (!found) throw NoSuchElementException("Collection doesn't contain any element matching predicate.")
+    if (!found) throw NoSuchElementException("Array doesn't contain any element matching predicate.")
     return single as Boolean
 }
 
@@ -2288,12 +2288,12 @@ public inline fun CharArray.single(predicate: (Char) -> Boolean): Char {
     var found = false
     for (element in this) {
         if (predicate(element)) {
-            if (found) throw IllegalArgumentException("Collection contains more than one matching element.")
+            if (found) throw IllegalArgumentException("Array contains more than one matching element.")
             single = element
             found = true
         }
     }
-    if (!found) throw NoSuchElementException("Collection doesn't contain any element matching predicate.")
+    if (!found) throw NoSuchElementException("Array doesn't contain any element matching predicate.")
     return single as Char
 }
 
@@ -10203,7 +10203,7 @@ public inline fun CharArray.reduceIndexed(operation: (Int, Char, Char) -> Char):
  */
 public inline fun <S, T: S> Array<out T>.reduceRight(operation: (T, S) -> S): S {
     var index = lastIndex
-    if (index < 0) throw UnsupportedOperationException("Empty iterable can't be reduced.")
+    if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator: S = get(index--)
     while (index >= 0) {
         accumulator = operation(get(index--), accumulator)
@@ -10216,7 +10216,7 @@ public inline fun <S, T: S> Array<out T>.reduceRight(operation: (T, S) -> S): S 
  */
 public inline fun ByteArray.reduceRight(operation: (Byte, Byte) -> Byte): Byte {
     var index = lastIndex
-    if (index < 0) throw UnsupportedOperationException("Empty iterable can't be reduced.")
+    if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
     while (index >= 0) {
         accumulator = operation(get(index--), accumulator)
@@ -10229,7 +10229,7 @@ public inline fun ByteArray.reduceRight(operation: (Byte, Byte) -> Byte): Byte {
  */
 public inline fun ShortArray.reduceRight(operation: (Short, Short) -> Short): Short {
     var index = lastIndex
-    if (index < 0) throw UnsupportedOperationException("Empty iterable can't be reduced.")
+    if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
     while (index >= 0) {
         accumulator = operation(get(index--), accumulator)
@@ -10242,7 +10242,7 @@ public inline fun ShortArray.reduceRight(operation: (Short, Short) -> Short): Sh
  */
 public inline fun IntArray.reduceRight(operation: (Int, Int) -> Int): Int {
     var index = lastIndex
-    if (index < 0) throw UnsupportedOperationException("Empty iterable can't be reduced.")
+    if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
     while (index >= 0) {
         accumulator = operation(get(index--), accumulator)
@@ -10255,7 +10255,7 @@ public inline fun IntArray.reduceRight(operation: (Int, Int) -> Int): Int {
  */
 public inline fun LongArray.reduceRight(operation: (Long, Long) -> Long): Long {
     var index = lastIndex
-    if (index < 0) throw UnsupportedOperationException("Empty iterable can't be reduced.")
+    if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
     while (index >= 0) {
         accumulator = operation(get(index--), accumulator)
@@ -10268,7 +10268,7 @@ public inline fun LongArray.reduceRight(operation: (Long, Long) -> Long): Long {
  */
 public inline fun FloatArray.reduceRight(operation: (Float, Float) -> Float): Float {
     var index = lastIndex
-    if (index < 0) throw UnsupportedOperationException("Empty iterable can't be reduced.")
+    if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
     while (index >= 0) {
         accumulator = operation(get(index--), accumulator)
@@ -10281,7 +10281,7 @@ public inline fun FloatArray.reduceRight(operation: (Float, Float) -> Float): Fl
  */
 public inline fun DoubleArray.reduceRight(operation: (Double, Double) -> Double): Double {
     var index = lastIndex
-    if (index < 0) throw UnsupportedOperationException("Empty iterable can't be reduced.")
+    if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
     while (index >= 0) {
         accumulator = operation(get(index--), accumulator)
@@ -10294,7 +10294,7 @@ public inline fun DoubleArray.reduceRight(operation: (Double, Double) -> Double)
  */
 public inline fun BooleanArray.reduceRight(operation: (Boolean, Boolean) -> Boolean): Boolean {
     var index = lastIndex
-    if (index < 0) throw UnsupportedOperationException("Empty iterable can't be reduced.")
+    if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
     while (index >= 0) {
         accumulator = operation(get(index--), accumulator)
@@ -10307,7 +10307,7 @@ public inline fun BooleanArray.reduceRight(operation: (Boolean, Boolean) -> Bool
  */
 public inline fun CharArray.reduceRight(operation: (Char, Char) -> Char): Char {
     var index = lastIndex
-    if (index < 0) throw UnsupportedOperationException("Empty iterable can't be reduced.")
+    if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
     while (index >= 0) {
         accumulator = operation(get(index--), accumulator)
