@@ -52,22 +52,22 @@ Exit code: ABORT
 ------------------------------------------
 COMPILATION FAILED
 Cannot access 'A': it is 'private' in file
-Subclass effective visibility 'public' should be the same or less permissive than its superclass effective visibility 'private'
-Generic effective visibility 'public' should be the same or less permissive than its type parameter bound effective visibility 'private'
+Subclass effective visibility 'public' should be the same or less permissive than its supertype A effective visibility 'private'
+Generic effective visibility 'public' should be the same or less permissive than its parameter bound type A effective visibility 'private'
 Cannot access 'A': it is 'private' in file
 Cannot access 'A': it is 'private' in file
-Function effective visibility 'public' should be the same or less permissive than its parameter type effective visibility 'private'
+Function effective visibility 'public' should be the same or less permissive than its parameter type A effective visibility 'private'
 Cannot access 'A': it is 'private' in file
 Cannot access 'A': it is 'private' in file
-Function effective visibility 'public' should be the same or less permissive than its return type effective visibility 'private'
+Function effective visibility 'public' should be the same or less permissive than its return type A effective visibility 'private'
 Cannot access 'A': it is 'private' in file
 Cannot access 'A': it is 'private' in file
 Cannot access 'A': it is 'private' in file
 Cannot access 'A': it is 'private' in file
-Function effective visibility 'public' should be the same or less permissive than its return type effective visibility 'private'
+Function effective visibility 'public' should be the same or less permissive than its return type A effective visibility 'private'
 Cannot access 'A': it is 'private' in file
 Cannot access 'A': it is 'private' in file
-Function effective visibility 'public' should be the same or less permissive than its return type effective visibility 'private'
+Function effective visibility 'public' should be the same or less permissive than its return type A effective visibility 'private'
 
 ================ Step #2 =================
 
