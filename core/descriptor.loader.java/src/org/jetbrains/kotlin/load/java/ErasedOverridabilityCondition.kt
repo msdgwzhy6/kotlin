@@ -43,4 +43,7 @@ class ErasedOverridabilityCondition : ExternalOverridabilityCondition {
             else ->  Result.UNKNOWN
         }
     }
+
+    override fun mayOnlyForceOverridability() = true
+    override fun mayOnlyDetectConflict() = false
 }

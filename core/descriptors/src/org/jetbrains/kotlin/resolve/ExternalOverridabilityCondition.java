@@ -32,4 +32,8 @@ public interface ExternalOverridabilityCondition {
             @NotNull CallableDescriptor subDescriptor,
             @Nullable ClassDescriptor subClassDescriptor
     );
+
+    // Should not be true in both cases
+    boolean mayOnlyForceOverridability();
+    boolean mayOnlyDetectConflict();
 }

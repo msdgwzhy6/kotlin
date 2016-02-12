@@ -33,4 +33,7 @@ class FieldOverridabilityCondition : ExternalOverridabilityCondition {
 
         return Result.UNKNOWN
     }
+
+    override fun mayOnlyForceOverridability() = false
+    override fun mayOnlyDetectConflict() = false
 }

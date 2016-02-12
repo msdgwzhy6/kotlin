@@ -40,10 +40,19 @@ import static org.jetbrains.kotlin.resolve.OverridingUtil.OverrideCompatibilityI
 public class OverridingUtil {
 
     private static final List<ExternalOverridabilityCondition> EXTERNAL_CONDITIONS =
-            CollectionsKt.toList(ServiceLoader.load(
+            CollectionsKt.sortedBy(ServiceLoader.load(
                     ExternalOverridabilityCondition.class,
                     ExternalOverridabilityCondition.class.getClassLoader()
-            ));
+            ), new Function1<ExternalOverridabilityCondition, Comparable>() {
+                @Override
+                public Comparable invoke(ExternalOverridabilityCondition condition) {
+                    assert !condition.mayOnlyForceOverridability() || !condition.mayOnlyDetectConflict()
+                            : "Wrong condition contract for " + condition.getClass();
+                    if (condition.mayOnlyForceOverridability()) return -1;
+                    if (condition.mayOnlyDetectConflict()) return 1;
+                    return 0;
+                }
+            });
 
     public static final OverridingUtil DEFAULT = new OverridingUtil(new KotlinTypeChecker.TypeConstructorEquality() {
         @Override
@@ -84,13 +93,17 @@ public class OverridingUtil {
             @Nullable ClassDescriptor subClassDescriptor,
             boolean checkReturnType
     ) {
-        boolean wasSuccessfulExternalCondition = false;
+        OverrideCompatibilityInfo basicResult = isOverridableByWithoutExternalConditions(superDescriptor, subDescriptor, checkReturnType);
+        boolean wasSuccess = basicResult.getResult() == OVERRIDABLE;
         for (ExternalOverridabilityCondition externalCondition : EXTERNAL_CONDITIONS) {
+            if (wasSuccess && externalCondition.mayOnlyForceOverridability()) continue;
+            if (!wasSuccess && externalCondition.mayOnlyDetectConflict()) continue;
+
             ExternalOverridabilityCondition.Result result =
                     externalCondition.isOverridable(superDescriptor, subDescriptor, subClassDescriptor);
             switch (result) {
                 case OVERRIDABLE:
-                    wasSuccessfulExternalCondition = true;
+                    wasSuccess = true;
                     break;
                 case CONFLICT:
                     return OverrideCompatibilityInfo.conflict("External condition failed");
@@ -102,11 +115,11 @@ public class OverridingUtil {
             }
         }
 
-        if (wasSuccessfulExternalCondition) {
+        if (wasSuccess) {
             return OverrideCompatibilityInfo.success();
         }
 
-        return isOverridableByWithoutExternalConditions(superDescriptor, subDescriptor, checkReturnType);
+        return basicResult;
     }
 
     @NotNull

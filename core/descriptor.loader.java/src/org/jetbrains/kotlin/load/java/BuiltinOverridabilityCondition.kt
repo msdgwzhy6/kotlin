@@ -64,4 +64,7 @@ class BuiltinOverridabilityCondition : ExternalOverridabilityCondition {
         // incompatible override
         return Result.INCOMPATIBLE
     }
+
+    override fun mayOnlyForceOverridability() = false
+    override fun mayOnlyDetectConflict() = true
 }
