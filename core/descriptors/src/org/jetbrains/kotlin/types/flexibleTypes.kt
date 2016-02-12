@@ -129,6 +129,9 @@ open class DelegatingFlexibleType protected constructor(
         }
 
         internal val ASSERTIONS_ENABLED = DelegatingFlexibleType::class.java.desiredAssertionStatus()
+
+        @JvmField
+        var RUN_SLOW_ASSERTIONS = false
     }
 
      // These assertions are needed for checking invariants of flexible types.
@@ -140,7 +143,7 @@ open class DelegatingFlexibleType protected constructor(
     private var assertionsDone = false
 
     private fun runAssertions() {
-        if (assertionsDone || !ASSERTIONS_ENABLED) return
+        if (!RUN_SLOW_ASSERTIONS || assertionsDone || !ASSERTIONS_ENABLED) return
         assertionsDone = true
 
         assert (!lowerBound.isFlexible()) { "Lower bound of a flexible type can not be flexible: $lowerBound" }
