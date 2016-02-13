@@ -2,6 +2,8 @@ package
 
 public val c: Consume<kotlin.Int?>
 public val cc: Consume<kotlin.Nothing?>
+public val m: Mapper<kotlin.Int?, kotlin.String>
+public val mm: Mapper<kotlin.Nothing?, kotlin.String>
 public val p: Produce<kotlin.Int?>
 public val pp: Produce<kotlin.Int?>
 public val t: Transform<kotlin.Int?>
@@ -12,6 +14,15 @@ public fun foo(/*0*/ arg: kotlin.Any?): kotlin.Unit
 public final class Consume</*0*/ T> {
     public constructor Consume</*0*/ T>(/*0*/ x: T, /*1*/ f: (T) -> kotlin.Unit)
     public final val f: (T) -> kotlin.Unit
+    public final val x: T
+    public open override /*1*/ /*fake_override*/ fun equals(/*0*/ other: kotlin.Any?): kotlin.Boolean
+    public open override /*1*/ /*fake_override*/ fun hashCode(): kotlin.Int
+    public open override /*1*/ /*fake_override*/ fun toString(): kotlin.String
+}
+
+public final class Mapper</*0*/ T, /*1*/ R> {
+    public constructor Mapper</*0*/ T, /*1*/ R>(/*0*/ x: T, /*1*/ f: (T) -> R)
+    public final val f: (T) -> R
     public final val x: T
     public open override /*1*/ /*fake_override*/ fun equals(/*0*/ other: kotlin.Any?): kotlin.Boolean
     public open override /*1*/ /*fake_override*/ fun hashCode(): kotlin.Int
