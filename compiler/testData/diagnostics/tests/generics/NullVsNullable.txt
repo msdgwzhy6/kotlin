@@ -1,12 +1,35 @@
 package
 
-public val fail: Sample<kotlin.Int?>
-public val ok: Sample<kotlin.Int?>
+public val c: Consume<kotlin.Int?>
+public val cc: Consume<kotlin.Nothing?>
+public val p: Produce<kotlin.Int?>
+public val pp: Produce<kotlin.Int?>
+public val t: Transform<kotlin.Int?>
+public val tt: [ERROR : Type for Transform(null) { y -> bar(y) }]
+public fun bar(/*0*/ arg: kotlin.Any?): kotlin.Any?
 public fun foo(/*0*/ arg: kotlin.Any?): kotlin.Unit
 
-public final class Sample</*0*/ T> {
-    public constructor Sample</*0*/ T>(/*0*/ x: T, /*1*/ f: (T) -> kotlin.Unit)
+public final class Consume</*0*/ T> {
+    public constructor Consume</*0*/ T>(/*0*/ x: T, /*1*/ f: (T) -> kotlin.Unit)
     public final val f: (T) -> kotlin.Unit
+    public final val x: T
+    public open override /*1*/ /*fake_override*/ fun equals(/*0*/ other: kotlin.Any?): kotlin.Boolean
+    public open override /*1*/ /*fake_override*/ fun hashCode(): kotlin.Int
+    public open override /*1*/ /*fake_override*/ fun toString(): kotlin.String
+}
+
+public final class Produce</*0*/ T> {
+    public constructor Produce</*0*/ T>(/*0*/ x: T, /*1*/ f: () -> T)
+    public final val f: () -> T
+    public final val x: T
+    public open override /*1*/ /*fake_override*/ fun equals(/*0*/ other: kotlin.Any?): kotlin.Boolean
+    public open override /*1*/ /*fake_override*/ fun hashCode(): kotlin.Int
+    public open override /*1*/ /*fake_override*/ fun toString(): kotlin.String
+}
+
+public final class Transform</*0*/ T> {
+    public constructor Transform</*0*/ T>(/*0*/ x: T, /*1*/ f: (T) -> T)
+    public final val f: (T) -> T
     public final val x: T
     public open override /*1*/ /*fake_override*/ fun equals(/*0*/ other: kotlin.Any?): kotlin.Boolean
     public open override /*1*/ /*fake_override*/ fun hashCode(): kotlin.Int
