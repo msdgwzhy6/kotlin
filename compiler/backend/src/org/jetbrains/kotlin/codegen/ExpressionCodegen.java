@@ -1249,14 +1249,14 @@ public class ExpressionCodegen extends KtVisitor<StackValue, StackValue> impleme
     public static ConstantValue<?> getCompileTimeConstant(
             @NotNull KtExpression expression,
             @NotNull BindingContext bindingContext,
-            boolean checkPure
+            boolean takeUpConstValsAsConst
     ) {
         CompileTimeConstant<?> compileTimeValue = ConstantExpressionEvaluator.getConstant(expression, bindingContext);
-        if (compileTimeValue == null) {
+        if (compileTimeValue == null || compileTimeValue.getUsesNonConstValAsConstant()) {
             return null;
         }
 
-        if (compileTimeValue.getUsesNonConstValAsConstant() || (checkPure && !compileTimeValue.getParameters().isPure())) return null;
+        if (!takeUpConstValsAsConst && compileTimeValue.getUsesVariableAsConstant()) return null;
 
         KotlinType expectedType = bindingContext.getType(expression);
         return compileTimeValue.toConstantValue(expectedType);
@@ -2902,7 +2902,7 @@ public class ExpressionCodegen extends KtVisitor<StackValue, StackValue> impleme
                               expression.getRight(), reference);
         }
         else {
-            ConstantValue<?> compileTimeConstant = getCompileTimeConstant(expression, bindingContext, true);
+            ConstantValue<?> compileTimeConstant = getCompileTimeConstant(expression, bindingContext);
             if (compileTimeConstant != null) {
                 return StackValue.constant(compileTimeConstant.getValue(), expressionType(expression));
             }
@@ -3179,7 +3179,7 @@ public class ExpressionCodegen extends KtVisitor<StackValue, StackValue> impleme
 
     @Override
     public StackValue visitPrefixExpression(@NotNull KtPrefixExpression expression, @NotNull StackValue receiver) {
-        ConstantValue<?> compileTimeConstant = getCompileTimeConstant(expression, bindingContext, true);
+        ConstantValue<?> compileTimeConstant = getCompileTimeConstant(expression, bindingContext);
         if (compileTimeConstant != null) {
             return StackValue.constant(compileTimeConstant.getValue(), expressionType(expression));
         }
